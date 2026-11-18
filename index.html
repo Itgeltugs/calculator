@@ -41,9 +41,10 @@
       let firstnumber = 0;
       let secondnumber = 0;
       let action = null;
+      let hariu;
 
       const addValue = (too) => {
-        if (action && firstnumber > 0) {
+        if (action !== null) {
           secondnumber = secondnumber * 10 + too;
           display.textContent = secondnumber;
         } else {
