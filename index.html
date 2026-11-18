@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link href="/src/style.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <section class="section">
+      <h1 class="title">calculator</h1>
+      <div class="boxx">
+        <div class="box1" id="display"></div>
+        <div class="box2">
+          <div class="button" onclick="addValue(7)">7</div>
+          <div class="button" onclick="addValue(8)">8</div>
+          <div class="button" onclick="addValue(9)">9</div>
+          <div class="button" onclick="chooseOperator('/')">/</div>
+          <div class="button" onclick="addValue(4)">4</div>
+          <div class="button" onclick="addValue(5)">5</div>
+          <div class="button" onclick="addValue(6)">6</div>
+          <div class="button" onclick="chooseOperator('*')">*</div>
+          <div class="button" onclick="addValue(1)">1</div>
+          <div class="button" onclick="addValue(2)">2</div>
+          <div class="button" onclick="addValue(3)">3</div>
+          <div class="button" onclick="chooseOperator('-')">-</div>
+          <div class="button" onclick="addValue(0)">0</div>
+          <div class="button" onclick="clearDisplay()">!!</div>
+          <div class="button" onclick="calculate()">=</div>
+          <div class="button" onclick="chooseOperator('+')">+</div>
+        </div>
+      </div>
+    </section>
+    <script>
+      const display = document.getElementById("display");
+      let firstnumber = 0;
+      let secondnumber = 0;
+      let action = null;
+
+      const addValue = (too) => {
+        if (action && firstnumber > 0) {
+          secondnumber = secondnumber * 10 + too;
+          display.textContent = secondnumber;
+        } else {
+          firstnumber = firstnumber * 10 + too;
+          display.textContent = firstnumber;
+        }
+      };
+
+      const chooseOperator = (uildel) => {
+        action = uildel;
+      };
+
+      const calculate = () => {
+        if (action === "+") {
+          hariu = firstnumber + secondnumber;
+          display.textContent = hariu;
+          action = null;
+          firstnumber = hariu;
+          secondnumber = 0;
+        } else if (action === "-") {
+          hariu = firstnumber - secondnumber;
+          display.textContent = hariu;
+          action = null;
+          firstnumber = hariu;
+          secondnumber = 0;
+        } else if (action === "*") {
+          hariu = firstnumber * secondnumber;
+          display.textContent = hariu;
+          action = null;
+          firstnumber = hariu;
+          secondnumber = 0;
+        } else if (action === "/") {
+          hariu = firstnumber / secondnumber;
+          display.textContent = hariu;
+          action = null;
+          firstnumber = hariu;
+          secondnumber = 0;
+        }
+      };
+
+      const clearDisplay = () => {
+        firstnumber = 0;
+        secondnumber = 0;
+        action = null;
+        display.textContent = "";
+      };
+    </script>
+  </body>
+</html>
